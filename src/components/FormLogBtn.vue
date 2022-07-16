@@ -1,14 +1,13 @@
 <template>
-    <button>Log In</button>
+   <div>
+        <button>Log In</button>
+   </div>
 </template>
 
 <script>
 
 export default {
     name: 'FormLogBtn',
-    props: {
-        //msg: String
-    }
 }
 </script>
 

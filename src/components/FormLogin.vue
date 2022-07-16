@@ -1,16 +1,18 @@
 <template>
-    <div id="form-login">
-        <form>
+    <div>
+        <form @submit.prevent="handleSubmit">
             <!-- email -->
             <div class="email">
-                <input type="email" placeholder="Email" required>
+                <input type="email" placeholder="Email" v-model="email" required>
             </div>
 
             <!-- password -->
             <div class="password">
-                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Password" v-model="password" required >
             </div>
-
+            <!-- if password error -->
+            <div v-if="passwordError" class="error"> {{passwordError}} </div>
+            
             <!-- checkbox and forgot psw -->
             <div class="options">
                 <span class="check">
@@ -20,7 +22,9 @@
                 <span class="forgot">Forgot password</span>
             </div>
 
+            <!-- login button -->
             <FormLogBtn />
+            
         </form>
     </div>
 </template>
@@ -30,14 +34,26 @@ import FormLogBtn from './FormLogBtn.vue';
 
 export default {
     name: 'FormLogin',
+    data() {
+        return {
+            email: '',
+            password: '',
+            passwordError: '',
+        }
+    },
     components: {
         FormLogBtn,
     },
-    props: {
-        //msg: String
-    }, 
     methods: {
-    
+        handleSubmit() {
+            // validate password
+            this.passwordError = this.password.length > 6 ? '' : 'La password deve essere di minimo 6 caratteri.';
+
+            if (!this.passwordError) {
+                console.log(`email: ${this.email}`);
+                console.log(`password: ${this.password}`);
+            }
+        },
     },
 }
 </script>
@@ -45,7 +61,7 @@ export default {
 <style scoped lang="scss">
 @import '@/scss/variables.scss';
 
-#form-login {
+form {
     .email {
         padding: 5px 0;
 
@@ -67,6 +83,13 @@ export default {
             border-bottom: 1px solid $lightgrey;
             padding: 10px 0;
         }
+    }
+
+    .error {
+        font-size: 12px;
+        color: tomato;
+        padding: 2px;
+        border-radius: 5px;
     }
 
     .options {
