@@ -23,7 +23,9 @@
             </div>
 
             <!-- login button -->
-            <FormLogBtn />
+            <div class="login-button">
+                <FormLogBtn />
+            </div>
             
         </form>
     </div>
@@ -61,7 +63,7 @@ export default {
 <style scoped lang="scss">
 @import '@/scss/variables.scss';
 
-form {
+form {    
     .email {
         padding: 5px 0;
 
@@ -117,6 +119,10 @@ form {
             text-decoration: underline;
             cursor: pointer;
         }
+    }
+
+    .login-button {
+        height: 50px;
     }
 }
 </style>

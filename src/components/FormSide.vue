@@ -24,10 +24,12 @@ export default {
 <style scoped lang="scss">
 
   #form-side-container {
+    width: 500px;
+    max-height: 650px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
+
   }
 </style>

@@ -1,19 +1,19 @@
 <template>
     <div id="main-container">
-        <FormSide class="col-12 col-md-6" />
-        <SliderSide class="col-6" />
+        <FormSide  />
+        <CarouselSide />
     </div>
 </template>
 
 <script>
 import FormSide from './FormSide.vue';
-import SliderSide from './SliderSide.vue';
+import CarouselSide from './CarouselSide.vue';
 
 export default {
     name: 'App',
     components: {
         FormSide,
-        SliderSide,
+        CarouselSide,
     }
 }
 </script>
@@ -23,10 +23,13 @@ export default {
 
 #main-container {
     width: 80vw;
-    height: 90vh;
+    max-width: 1000px;
+    height: 700px;
+    max-height: 700px;
     display: flex;
     text-align: center;
     justify-content: center;
+    background-color: #fff;
     color: $black;
 }
 </style>

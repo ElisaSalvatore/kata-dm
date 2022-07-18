@@ -35,12 +35,13 @@ export default {
 @import '@/scss/variables.scss';
 
 #form-container {
-    height: 70vh;
+    height: 500px;
     min-width: 215px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 40px;
 
     .title-welcome {
