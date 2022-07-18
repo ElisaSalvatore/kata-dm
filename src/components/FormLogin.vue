@@ -1,6 +1,7 @@
 <template>
-    <div>
+    <div id="form-login">
         <form @submit.prevent="handleSubmit">
+
             <!-- email -->
             <div class="email">
                 <input type="email" placeholder="Email" v-model="email" required>
@@ -8,16 +9,16 @@
 
             <!-- password -->
             <div class="password">
-                <input type="password" placeholder="Password" v-model="password" required >
+                <input type="password" placeholder="Password" v-model="password" required>
             </div>
             <!-- if password error -->
-            <div v-if="passwordError" class="error"> {{passwordError}} </div>
-            
+            <div v-if="passwordError" class="error"> {{ passwordError }} </div>
+
             <!-- checkbox and forgot psw -->
             <div class="options">
                 <span class="check">
                     <input type="checkbox">
-                    <label for="checkbox">Rememeber for 30 days</label>
+                    <label for="checkbox" class="check-text">Rememeber for 30 days</label>
                 </span>
                 <span class="forgot">Forgot password</span>
             </div>
@@ -26,7 +27,7 @@
             <div class="login-button">
                 <FormLogBtn />
             </div>
-            
+
         </form>
     </div>
 </template>
@@ -63,66 +64,58 @@ export default {
 <style scoped lang="scss">
 @import '@/scss/variables.scss';
 
-form {    
-    .email {
-        padding: 5px 0;
+#form-login {
 
-        input {
-            width: 100%;
-            border: none;
-            border-bottom: 1px solid $lightgrey;
-            padding: 10px 0;
+    form {
 
-        }
-    }
-
-    .password {
-        padding: 5px 0;
-
-        input {
-            width: 100%;
-            border: none;
-            border-bottom: 1px solid $lightgrey;
-            padding: 10px 0;
-        }
-    }
-
-    .error {
-        font-size: 12px;
-        color: tomato;
-        padding: 2px;
-        border-radius: 5px;
-    }
-
-    .options {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 0;
-
-        .check {
-            display: flex;
-            align-self: center;
+        .email, .password {
+            padding: 4px 0;
 
             input {
-                margin-right: 5px;
-            }
+                font-size: 12px;
+                width: 100%;
+                border: none;
+                border-bottom: 1px solid $lightgrey;
+                padding: 10px 0;
 
-            label {
-                font-size: 10px;
             }
         }
 
-        .forgot {
-            font-size: 10px;
-            font-weight: 600;
-            text-decoration: underline;
-            cursor: pointer;
+        .error {
+            font-size: 12px;
+            color: tomato;
+            padding: 2px;
+            border-radius: 5px;
         }
-    }
 
-    .login-button {
-        height: 50px;
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+
+            .check {
+                input {
+                    margin-right: 5px;
+                }
+
+                .check-text {
+                    font-size: 10px;
+                    padding-right: 20px;
+                }
+            }
+
+            .forgot {
+                font-size: 8px;
+                font-weight: 600;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+
+        .login-button {
+            height: 50px;
+        }
     }
 }
 </style>

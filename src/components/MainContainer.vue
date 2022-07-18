@@ -1,7 +1,7 @@
 <template>
     <div id="main-container">
-        <FormSide  />
-        <CarouselSide />
+        <FormSide  class="col-12 col-lg-6"/>
+        <CarouselSide class="col-6 carousel-side"/>
     </div>
 </template>
 
@@ -12,9 +12,9 @@ import CarouselSide from './CarouselSide.vue';
 export default {
     name: 'App',
     components: {
-        FormSide,
-        CarouselSide,
-    }
+    FormSide,
+    CarouselSide
+}
 }
 </script>
 
@@ -23,13 +23,18 @@ export default {
 
 #main-container {
     width: 80vw;
+    height: 600px;
     max-width: 1000px;
-    height: 700px;
-    max-height: 700px;
     display: flex;
-    text-align: center;
-    justify-content: center;
     background-color: #fff;
     color: $black;
+}
+
+/* mobile version */
+@media screen and (max-width: 991px) {
+#main-container {
+        width: 100vw;
+        height: 100vh;
+    }
 }
 </style>

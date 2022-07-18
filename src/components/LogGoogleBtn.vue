@@ -15,9 +15,6 @@
 
 export default {
     name: 'LogGoogleBtn',
-    props: {
-        //msg: String
-    }
 }
 </script>
 
@@ -40,6 +37,7 @@ button {
 
     .log-text {
         padding: 0 10px;
+        font-size: 15px;;
         font-weight: 400;
     }
 

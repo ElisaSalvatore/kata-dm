@@ -1,7 +1,7 @@
 <template>
-   <div>
+    <div>
         <button>Log In</button>
-   </div>
+    </div>
 </template>
 
 <script>
@@ -24,7 +24,7 @@ button {
     margin: 10px 0;
 }
 
-:active{
+:active {
     border: 4px solid $white;
     border-radius: 10px;
 }

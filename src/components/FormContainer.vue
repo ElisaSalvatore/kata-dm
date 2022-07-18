@@ -1,5 +1,5 @@
 <template>
-    <div id="form-container" class="col-6">
+    <div id="form-container">
 
         <div class="title-welcome">Welcome back, Olivia</div>
 
@@ -25,9 +25,7 @@ export default {
         LogGoogleBtn,
         FormLogin,
     },
-    props: {
-        //msg: String
-    }
+
 }
 </script>
 
@@ -35,23 +33,20 @@ export default {
 @import '@/scss/variables.scss';
 
 #form-container {
-    height: 500px;
-    min-width: 215px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    padding: 10px;
 
     .title-welcome {
+        font-size: 20px;
         align-self: start;
-        font-size: 25px;
         font-weight: 600;
     }
 
     .para-welcome {
-        align-self: start;
+        font-size: 12px;
         color: $lightgrey;
     }
 
