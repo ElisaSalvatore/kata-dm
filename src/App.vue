@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <MainContainer />
+    <MainContainer class="main-container"/>
   </div>
 </template>
 
@@ -22,11 +21,21 @@ export default {
 
 #app {
   font-family: 'Montserrat', sans-serif;
+  width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $bg-grey;
-
+  margin: 0 auto;
+  
 }
+
+@media screen and (min-width: 1290px) {
+  #app{
+    width: 1200px;
+    height: 600px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+   
+  }
+}
+
 </style>

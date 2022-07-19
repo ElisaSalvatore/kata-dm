@@ -1,7 +1,8 @@
 <template>
     <div id="main-container">
-        <FormSide  class="col-12 col-lg-6"/>
-        <CarouselSide class="col-6 carousel-side"/>
+        <FormSide  class="col-12 col-md-5 col-xl-6"/>
+
+        <CarouselSide class="col-md-7 col-xl-6 carousel-side"/>
     </div>
 </template>
 
@@ -22,19 +23,10 @@ export default {
 @import '@/scss/variables.scss';
 
 #main-container {
-    width: 80vw;
-    height: 600px;
-    max-width: 1000px;
+    width: 100vw;
+    height: 90vh;
     display: flex;
-    background-color: #fff;
     color: $black;
 }
 
-/* mobile version */
-@media screen and (max-width: 991px) {
-#main-container {
-        width: 100vw;
-        height: 100vh;
-    }
-}
 </style>

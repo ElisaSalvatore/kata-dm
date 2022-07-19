@@ -15,12 +15,21 @@
             </h3>
 
             <div class="infos pr">
-                <h6><strong>Sophie Hall</strong></h6>
-                <p> <strong>Founder, Catalog</strong> </p>
-                <p>Web Design Agency</p>
+                <h5 class="pb-2"><strong>Sophie Hall</strong></h5>
+                <p class="mb-0"> <strong>Founder, Catalog</strong> </p>
+                <p class="mt-0">Web Design Agency</p>
             </div>
 
             <div class="bottom-details pr">
+
+                <div class="stars">
+                    <img src="../assets/star.svg" alt="star">
+                    <img src="../assets/star.svg" alt="star">
+                    <img src="../assets/star.svg" alt="star">
+                    <img src="../assets/star.svg" alt="star">
+                    <img src="../assets/star.svg" alt="star">
+                </div>
+
                 <button class="prev" @click="prevImg">
                     <img src="../assets/arrow-l.svg" alt="">
                 </button>
@@ -61,6 +70,9 @@ export default {
                 this.currentIndex = this.images.length - 1;
             }
         },
+        printsStar() {
+            
+        }
 
     }
 }
@@ -70,18 +82,22 @@ export default {
 @import '@/scss/variables.scss';
 
 #carousel-container {
-    max-height: 600px;
+    width: 100%;
+    
+    // height: 100%;
+    max-height: 800px;
 
     .pr {
         position: relative;
     }
 
     .component {
-        max-height: 600px;
+        width: 100%;        
 
         img {
             width: 100%;
-            max-height: 600px;
+            max-height: 650px;
+            height: 100%;
             object-fit: cover;
         }
 
@@ -101,14 +117,13 @@ export default {
             width: 250px;
             height: 50px;
             position: absolute;
-            bottom: 5%;
+            bottom: 8%;
             left: 50px;
             color: $white;
             text-align: start;
 
             p {
-                font-size: 9px;
-                margin: 0;
+                font-size: 12px;
             }
 
         }
@@ -118,11 +133,22 @@ export default {
             bottom: 30px;
             right: 50px;
 
+            .stars {
+                display: flex;
+                justify-content: end;
+                padding-right: 5px;
+
+                img {
+                    width: 15px;
+                    margin: 20px 0;
+                }
+            }
+
             button {
                 cursor: pointer;
                 border: 0.5px solid $white;
                 border-radius: 50px;
-                padding: 8px 10px;
+                padding: 4px 6px;
                 background-color: rgba(255, 255, 255, 0);
 
                 img {

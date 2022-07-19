@@ -1,9 +1,9 @@
 <template>
     <div id="form-container">
 
-        <div class="title-welcome">Welcome back, Olivia</div>
+        <div class="title-welcome ">Welcome back, Olivia</div>
 
-        <p class="para-welcome">Welcome back! Please enter your details.</p>
+        <p class="para-welcome ">Welcome back! Please enter your details.</p>
 
         <div class="w-100">
             <LogGoogleBtn />
@@ -35,7 +35,7 @@ export default {
 @import '@/scss/variables.scss';
 
 #form-container {
-    height: 80%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -46,12 +46,16 @@ export default {
         font-size: 20px;
         align-self: start;
         font-weight: 600;
+        margin: 0;
+        padding: 0;
     }
 
     .para-welcome {
         font-size: 12px;
+        align-self: start;
         color: $lightgrey;
-        margin-bottom: 0;
+        margin: 0;
+        padding: 0;
         
     }
 
@@ -74,11 +78,12 @@ export default {
     }
 }
 
-/* mobile version */
-@media screen and (max-width: 991px) {
+/* from medium breakpoint */
+@media screen and (max-width: 767px) {
 #form-container {
         width: 100%;
         padding: 0 20px;
+        justify-content: space-around;
     }
 
     .para-welcome {

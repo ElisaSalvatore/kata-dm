@@ -3,7 +3,7 @@
         <ValidationObserver v-slot="{ handleSubmit }">
             <form @submit.prevent="handleSubmit(onSubmit)">
                 <!-- valiate email -->
-                <ValidationProvider name="email" rules="required|alpha" v-slot="{ errors }">
+                <ValidationProvider name="email" rules="required" v-slot="{ errors }">
                     <div class="group-log">
                         <input type="email" v-model="email" placeholder="Email">
                         <div class="error">{{ errors[0] }}</div>
@@ -44,11 +44,8 @@ import FormLogBtn from './FormLogBtn.vue';
 export default {
     data() {
         return {
-            formData: {
-                email: '',
-                password: '',
-                rememberData: null,
-            }
+            email: '',
+            password: '',
         }
     },
     components: {
@@ -56,7 +53,8 @@ export default {
     },
     methods: {
         onSubmit() {
-            console.log(this.formData);
+            console.log('email: ', this.email);
+            console.log('password: ', this.password);
         },
     }
 }
@@ -66,7 +64,7 @@ export default {
 @import '@/scss/variables.scss';
 
 #form-login {
-    width: fit-content;
+    width: 100%;
 
     form {
 
@@ -83,7 +81,7 @@ export default {
         }
 
         .error {
-            font-size: 12px;
+            font-size: 10px;
             color: tomato;
             padding: 2px;
             border-radius: 5px;
@@ -124,7 +122,7 @@ export default {
 }
 
 /* mobile version */
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 575px) {
     #form-login {
         width: 100%;
     }

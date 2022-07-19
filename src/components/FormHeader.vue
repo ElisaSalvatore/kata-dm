@@ -20,24 +20,23 @@ export default {
   background-color: $white;
   display: flex;
   justify-content: start;
-  align-content: center;
-  padding: 40px 0 0 20px;
+  align-items: center;
 
   img {
-    align-self: center;
+    margin: 0 10px;
     width: 25px;
     height: 25px;
   }
 
   h6 {
-    font-weight: 500;
+    padding-top: 10px;
     color: $black;
-    padding-left: 10px;
   }
 }
 
-/* mobile version */
-@media screen and (max-width: 991px) {
+/* from large breakpoint */
+@media screen and (max-width: 767px) {
+
   h6 {
     display: none;
   }

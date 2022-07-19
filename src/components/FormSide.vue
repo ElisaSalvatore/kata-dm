@@ -1,6 +1,8 @@
 <template>
   <div id="form-side-container">
-    <FormHeader />
+    <div>
+      <FormHeader />
+    </div>
 
     <div class="form-container">
       <FormContainer />
@@ -24,9 +26,10 @@ export default {
 
 <style scoped lang="scss">
 #form-side-container {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 
   .form-container {
     width: 100%;
@@ -38,12 +41,23 @@ export default {
   }
 }
 
-/* mobile version */
-@media screen and (max-width: 991px) {
+/* from medium breakpoint */
+@media screen and (max-width: 767px) {
   #form-side-container {
+    height: 100%;
+
     .form-container {
+      height: 100vh;
       align-items: start;
     }
+  }
+}
+
+/* from large breakpoint */
+@media screen and (max-width: 767px) {
+  #form-side-container {
+    justify-content: start;
+    align-items: start;
   }
 }
 </style>

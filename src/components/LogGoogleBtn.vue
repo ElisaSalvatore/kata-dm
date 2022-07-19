@@ -54,10 +54,4 @@ button {
     }
 }
 
-/* mobile version */
-// @media screen and (max-width: 991px) {
-//     button {
-//         width: 95vw;
-//     }  
-// }
 </style>
