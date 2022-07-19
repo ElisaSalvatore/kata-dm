@@ -26,7 +26,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px 10px;
+    padding: 8px 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #fff;
@@ -37,7 +37,7 @@ button {
 
     .log-text {
         padding: 0 10px;
-        font-size: 15px;;
+        font-size: 12px;;
         font-weight: 400;
     }
 
@@ -53,4 +53,11 @@ button {
         border-radius: 15px;
     }
 }
+
+/* mobile version */
+// @media screen and (max-width: 991px) {
+//     button {
+//         width: 95vw;
+//     }  
+// }
 </style>

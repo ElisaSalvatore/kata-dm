@@ -1,34 +1,40 @@
 <template>
     <div id="form-login">
-        <form @submit.prevent="handleSubmit">
+        <ValidationObserver v-slot="{ handleSubmit }">
+            <form @submit.prevent="handleSubmit(onSubmit)">
+                <!-- valiate email -->
+                <ValidationProvider name="email" rules="required|alpha" v-slot="{ errors }">
+                    <div class="group-log">
+                        <input type="email" v-model="email" placeholder="Email">
+                        <div class="error">{{ errors[0] }}</div>
+                    </div>
+                </ValidationProvider>
 
-            <!-- email -->
-            <div class="email">
-                <input type="email" placeholder="Email" v-model="email" required>
-            </div>
+                <!-- valiate password -->
+                <ValidationProvider name="password" rules="required|max:12|min:6" v-slot="{ errors }">
+                    <div class="group-log">
+                        <input type="password" v-model="password" placeholder="Password">
+                        <div class="error">{{ errors[0] }}</div>
+                    </div>
+                </ValidationProvider>
 
-            <!-- password -->
-            <div class="password">
-                <input type="password" placeholder="Password" v-model="password" required>
-            </div>
-            <!-- if password error -->
-            <div v-if="passwordError" class="error"> {{ passwordError }} </div>
+                <!-- checkbox and forgot psw -->
+                <div class="options">
+                    <span class="check">
+                        <input type="checkbox">
+                        <label for="checkbox" class="check-text">Rememeber for 30 days</label>
+                    </span>
+                    <span class="forgot">Forgot password</span>
+                </div>
 
-            <!-- checkbox and forgot psw -->
-            <div class="options">
-                <span class="check">
-                    <input type="checkbox">
-                    <label for="checkbox" class="check-text">Rememeber for 30 days</label>
-                </span>
-                <span class="forgot">Forgot password</span>
-            </div>
+                <!-- login button -->
+                <div class="login-button">
+                    <FormLogBtn />
+                </div>
 
-            <!-- login button -->
-            <div class="login-button">
-                <FormLogBtn />
-            </div>
+            </form>
+        </ValidationObserver>
 
-        </form>
     </div>
 </template>
 
@@ -36,28 +42,23 @@
 import FormLogBtn from './FormLogBtn.vue';
 
 export default {
-    name: 'FormLogin',
     data() {
         return {
-            email: '',
-            password: '',
-            passwordError: '',
+            formData: {
+                email: '',
+                password: '',
+                rememberData: null,
+            }
         }
     },
     components: {
         FormLogBtn,
     },
     methods: {
-        handleSubmit() {
-            // validate password
-            this.passwordError = this.password.length > 6 ? '' : 'La password deve essere di minimo 6 caratteri.';
-
-            if (!this.passwordError) {
-                console.log(`email: ${this.email}`);
-                console.log(`password: ${this.password}`);
-            }
+        onSubmit() {
+            console.log(this.formData);
         },
-    },
+    }
 }
 </script>
 
@@ -65,19 +66,19 @@ export default {
 @import '@/scss/variables.scss';
 
 #form-login {
+    width: fit-content;
 
     form {
 
-        .email, .password {
+        .group-log {
             padding: 4px 0;
 
             input {
-                font-size: 12px;
                 width: 100%;
+                font-size: 12px;
                 border: none;
                 border-bottom: 1px solid $lightgrey;
                 padding: 10px 0;
-
             }
         }
 
@@ -95,6 +96,9 @@ export default {
             padding: 10px 0;
 
             .check {
+                display: flex;
+                align-items: center;
+
                 input {
                     margin-right: 5px;
                 }
@@ -106,7 +110,7 @@ export default {
             }
 
             .forgot {
-                font-size: 8px;
+                font-size: 10px;
                 font-weight: 600;
                 text-decoration: underline;
                 cursor: pointer;
@@ -116,6 +120,13 @@ export default {
         .login-button {
             height: 50px;
         }
+    }
+}
+
+/* mobile version */
+@media screen and (max-width: 991px) {
+    #form-login {
+        width: 100%;
     }
 }
 </style>

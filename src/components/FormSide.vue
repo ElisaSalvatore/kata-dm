@@ -5,7 +5,7 @@
     <div class="form-container">
       <FormContainer />
     </div>
-    
+
   </div>
 </template>
 
@@ -26,23 +26,24 @@ export default {
 #form-side-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
 
   .form-container {
+    width: 100%;
     height: 550px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     padding-top: 40px;
   }
 }
 
 /* mobile version */
 @media screen and (max-width: 991px) {
-#form-side-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
+  #form-side-container {
+    .form-container {
+      align-items: start;
+    }
   }
 }
 </style>

@@ -21,11 +21,12 @@ export default {
   display: flex;
   justify-content: start;
   align-content: center;
-  padding: 20px;
+  padding: 40px 0 0 20px;
 
   img {
-    width: 20px;
-    height: 20px;
+    align-self: center;
+    width: 25px;
+    height: 25px;
   }
 
   h6 {

@@ -5,7 +5,9 @@
 
         <p class="para-welcome">Welcome back! Please enter your details.</p>
 
-        <LogGoogleBtn />
+        <div class="w-100">
+            <LogGoogleBtn />
+        </div>
 
         <div class="or-divider">or</div>
 
@@ -33,11 +35,12 @@ export default {
 @import '@/scss/variables.scss';
 
 #form-container {
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 0 10px;
 
     .title-welcome {
         font-size: 20px;
@@ -48,6 +51,8 @@ export default {
     .para-welcome {
         font-size: 12px;
         color: $lightgrey;
+        margin-bottom: 0;
+        
     }
 
     .or-divider {
@@ -66,6 +71,18 @@ export default {
                 text-decoration: underline;
             }
         }
+    }
+}
+
+/* mobile version */
+@media screen and (max-width: 991px) {
+#form-container {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .para-welcome {
+        align-self: start;
     }
 }
 </style>
